@@ -36,7 +36,7 @@ class AlphabetList extends Component {
     this.scroller.scrollTop = this.mapPos.get(char)
   }
   render() {
-    const { generateFn, style, data, className } = this.props;
+    const { generateFn, generateHeaderFn, style, data, className } = this.props;
     const map = mapArrToMap(data);
     this.mapPos = new Map();
     const keyArr = Array.from(map.keys())
@@ -67,6 +67,7 @@ class AlphabetList extends Component {
                     suffix={` (${map.get(char).length})`}
                     key={char}
                     registerPos={this.registerPos}
+                    headerSection={generateHeaderFn}
                   >
                     {
                       map.get(char).map((item, index) => {
