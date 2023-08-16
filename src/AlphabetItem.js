@@ -5,7 +5,7 @@ class AlphabetItem extends Component {
     this.props.registerPos(this.props.id, this.fix.offsetTop)
   }
   render() {
-    const { id, suffix } = this.props
+    const { id, headerSection, suffix } = this.props
     return (
       <div
         style={{
@@ -13,12 +13,9 @@ class AlphabetItem extends Component {
         }}
         ref={(ref) => { this.fix = ref }}
       >
-        <div
-          style={{
-            color: 'white',
-          }}>
-          {`${id}${suffix}`}
-        </div>
+        {
+          headerSection(id, suffix)
+        }
         <div
           style={{
             marginTop: 4,
